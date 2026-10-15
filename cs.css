@@ -1,0 +1,57 @@
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#4facfe,#00f2fe);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-image: url(didier.png);
+}
+
+.signup-box{
+background: white;
+padding: 40px;
+width: 320px;
+border-radius: 10px;
+box-shadow: 0 10px 25px rgba(177, 173, 173, 0.993);
+text-align: center;
+background-image: url(project.png);
+}
+
+.signup-box h2{
+margin-bottom: 20px;
+color: azure;
+}
+
+.signup-box input{
+width: 100%;
+padding: 12px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 5px;
+outline: none;
+}
+
+.signup-box input:focus{
+border-color: #4facfe;
+}
+
+.signup-box button{
+width: 100%;
+padding: 12px;
+background: #4facfe;
+border: none;
+color: white;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.signup-box button:hover{
+background: #3a8be0;
+}
+
+.signup-box p{
+margin-top: 15px;
+font-size: 14px;
+}

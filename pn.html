@@ -1,0 +1,441 @@
+<?php
+// ===============================
+// DATABASE CONNECTION
+// ===============================
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "registration_platform";
+
+$conn = mysqli_connect($host, $user, $password, $database);
+
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
+}
+
+// ===============================
+// CREATE TABLE
+// ===============================
+
+$createTable = "
+CREATE TABLE IF NOT EXISTS students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100),
+    regno VARCHAR(50),
+    department VARCHAR(100)
+)
+";
+
+mysqli_query($conn, $createTable);
+
+// ===============================
+// INSERT STUDENT
+// ===============================
+
+if(isset($_POST['add_student'])){
+
+    $fullname = $_POST['fullname'];
+    $regno = $_POST['regno'];
+    $department = $_POST['department'];
+
+    $insert = "INSERT INTO students(fullname, regno, department)
+               VALUES('$fullname','$regno','$department')";
+
+    mysqli_query($conn, $insert);
+
+    header("Location: ".$_SERVER['PHP_SELF']);
+}
+
+// ===============================
+// DELETE STUDENT
+// ===============================
+
+if(isset($_GET['delete'])){
+
+    $id = $_GET['delete'];
+
+    mysqli_query($conn, "DELETE FROM students WHERE id='$id'");
+
+    header("Location: ".$_SERVER['PHP_SELF']);
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Registration Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* HEADER */
+.header{
+    width:100%;
+    background:#1e293b;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h2{
+    font-size:24px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:15px;
+}
+
+.nav a:hover{
+    color:cyan;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:20px;
+    color:#1e293b;
+}
+
+/* DASHBOARD CARDS */
+.stats{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.card span{
+    display:block;
+    margin-top:10px;
+    font-size:16px;
+    color:black;
+}
+
+/* MENU */
+.menu{
+    width:90%;
+    margin:30px auto;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.menu a{
+    background:#2563eb;
+    color:white;
+    padding:12px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.menu a:hover{
+    background:#1d4ed8;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:20px;
+}
+
+/* FORM */
+.form-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-box h3{
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+.form-box input,
+.form-box select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-box button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.form-box button:hover{
+    background:#1d4ed8;
+}
+
+/* TABLE */
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.delete-btn{
+    background:red;
+    color:white;
+    padding:6px 12px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:40px;
+    background:#1e293b;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .nav{
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+    <h2>Online Registration Platform</h2>
+
+    <div class="nav">
+        <a href="index.php">Home</a>
+        <a href="students.php">Students</a>
+        <a href="marks.php">Marks</a>
+        <a href="messages.php">Messages</a>
+        <a href="staff.php">Staff</a>
+        <a href="logout.php">Logout</a>
+    </div>
+
+</div>
+
+<!-- TITLE -->
+<h2 class="title">Admin Dashboard</h2>
+
+<!-- DASHBOARD -->
+<div class="stats">
+
+    <div class="card">
+        <?php
+        $totalStudents = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM students"));
+        echo $totalStudents;
+        ?>
+        <span>Students</span>
+    </div>
+
+    <div class="card">
+        25
+        <span>Marks</span>
+    </div>
+
+    <div class="card">
+        10
+        <span>Messages</span>
+    </div>
+
+    <div class="card">
+        5
+        <span>Staff</span>
+    </div>
+
+</div>
+
+<!-- MENU -->
+<div class="menu">
+
+    <a href="index.php">Dashboard</a>
+    <a href="students.php">Students</a>
+    <a href="marks.php">Marks</a>
+    <a href="messages.php">Messages</a>
+    <a href="staff.php">Staff</a>
+
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- FORM -->
+    <div class="form-box">
+
+        <h3>Add Student</h3>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="fullname"
+                   placeholder="Full Name"
+                   required>
+
+            <input type="text"
+                   name="regno"
+                   placeholder="Registration Number"
+                   required>
+
+            <select name="department" required>
+
+                <option value="">Select Department</option>
+
+                <option>Software Development (SOD)</option>
+
+                <option>Networking and Internet Technology (NIT)</option>
+
+                <option>Mathematics-Computer Science-Economics (MCE)</option>
+
+                <option>Literature in English-French-Kiswahili (LFK)</option>
+
+                <option>Primary</option>
+
+                <option>Nursery</option>
+
+            </select>
+
+            <button type="submit" name="add_student">
+                Add Student
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-box">
+
+        <h3>All Students</h3>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Reg No</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+
+            <?php
+
+            $select = "SELECT * FROM students ORDER BY id DESC";
+
+            $result = mysqli_query($conn, $select);
+
+            while($row = mysqli_fetch_assoc($result)){
+
+            ?>
+
+            <tr>
+
+                <td><?php echo $row['id']; ?></td>
+
+                <td><?php echo $row['fullname']; ?></td>
+
+                <td><?php echo $row['regno']; ?></td>
+
+                <td><?php echo $row['department']; ?></td>
+
+                <td>
+                    <a class="delete-btn"
+                       href="?delete=<?php echo $row['id']; ?>">
+                       Delete
+                    </a>
+                </td>
+
+            </tr>
+
+            <?php } ?>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+    <p>Online Registration Platform</p>
+    <p>Email: admin@gmail.com</p>
+    <p>Phone: +250 700 000 000</p>
+
+</div>
+
+</body>
+</html>

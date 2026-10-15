@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Screenshot 2026-04-22 121230.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Dashboard Messages</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+            padding:30px;
+        }
+
+        .dashboard{
+            max-width:900px;
+            margin:auto;
+        }
+
+        .title{
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        .message-box{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .message{
+            display:flex;
+            align-items:flex-start;
+            gap:15px;
+            padding:15px;
+            border-bottom:1px solid #ddd;
+            transition:0.3s;
+        }
+
+        .message:hover{
+            background:#f1f7ff;
+        }
+
+        .message:last-child{
+            border-bottom:none;
+        }
+
+        .avatar{
+            width:55px;
+            height:55px;
+            border-radius:50%;
+            background:#007bff;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .message-content{
+            flex:1;
+        }
+
+        .user-name{
+            font-size:18px;
+            font-weight:bold;
+            color:#222;
+        }
+
+        .text{
+            margin-top:5px;
+            color:#555;
+            line-height:1.5;
+        }
+
+        .time{
+            margin-top:8px;
+            font-size:13px;
+            color:gray;
+        }
+
+        .unread{
+            background:#eaf4ff;
+            border-left:5px solid #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <h1 class="title">User Messages</h1>
+
+        <div class="message-box">
+
+            <div class="message unread">
+                <div class="avatar">A</div>
+
+                <div class="message-content">
+                    <div class="user-name">MFURA Davies</div>
+
+                    <div class="text">
+                        Hello Admin, I need help becouse you write 90 instead of writting 10.
+                    </div>
+
+                    <div class="time">10 minutes ago</div>
+                </div>
+            </div>
+
+            <div class="message">
+                <div class="avatar">B</div>
+
+                <div class="message-content">
+                    <div class="user-name">Irakoze Aime</div>
+
+                    <div class="text">
+                        hello admin, why didn't you include Games at this platform.
+                    </div>
+
+                    <div class="time">25 minutes ago</div>
+                </div>
+            </div>
+
+            
+            <div class="message unread">
+                <div class="avatar">C</div>
+
+                <div class="message-content">
+                    <div class="user-name">Ishimwe Patrick</div>
+
+                    <div class="text">
+                        you uploaded the wrong marks. Can you update it?
+                    </div>
+
+                    <div class="time">1 hour ago</div>
+                </div>
+            </div>
+            <div class="message">
+                <div class="avatar">D</div>
+
+                <div class="message-content">
+                    <div class="user-name">Gisubizo Darcy</div>
+
+                    <div class="text">
+                        Hello Admin, i am in prison so i can't access this platform.
+                    </div>
+
+                    <div class="time">2 hours ago</div>
+                </div>
+            </div>
+
+            <div class="message unread">
+                <div class="avatar">E</div>
+
+                <div class="message-content">
+                    <div class="user-name">Igiraneza Kevin</div>
+
+                    <div class="text">
+                        Hello, I am dying of hunger guys.
+                    </div>
+
+                    <div class="time">3 hours ago</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navigation Tabs</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      padding: 40px;
+    }
+
+    .menu{
+      display: inline-flex;
+      background: #f1f1f1;
+      border-radius: 13px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+
+    .menu a{
+      text-decoration: none;
+      padding: 12px 20px;
+      color: #777;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .menu a:hover{
+      background: #e5e5e5;
+      color: #000;
+    }
+
+    .menu a.active{
+      background: #ffffff;
+      color: #000;
+      font-weight: bold;
+      border-bottom: 2px solid #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu">
+    <a href="#" class="active">Students</a>
+    <a href="#">Marks</a>
+    <a href="#">Messages</a>
+    <a href="#">Staff</a>
+  </div>
+
+</body>
+</html>

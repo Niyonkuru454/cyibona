@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<link rel="icon" type="image/png" href="cart.png">
+  <link rel="stylesheet" href="cs.css">
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#4facfe,#00f2fe);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.signup-box{
+background:white;
+padding:30px;
+width:300px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(202, 200, 200, 0.89);
+text-align:center;
+background-image: url(project.png);
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#4facfe;
+border:none;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#3a8be0;
+}
+</style>
+
+</head>
+
+<body style="background-image: url(didier.png);">
+
+<div class="signup-box">
+
+<h2>Create Account</h2>
+
+<form onsubmit="goNext(event)">
+
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+<label>GENDER:</label>
+<input type="radio" value="male" name="male">Male
+<input type="radio" value="female" name="female">Female 
+<button type="submit">Sign Up</button>
+<p>Already have an account? <a href="pp.html">Login</a></p>
+
+</form>
+
+</div>
+
+<script>
+    let a= confirmed
+    alert(a);
+function goNext(event){
+event.preventDefault();
+window.location.href="df.html";
+}
+</script>
+
+</body>
+</html>

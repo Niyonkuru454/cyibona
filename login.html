@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+<link rel="icon" type="image/png" href="didier.png">
+<style>
+    body{
+        background-image: url(mb.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+      .form{
+            width:300px;
+            height:400px;
+            background:rgba(0,0,0,0.7);
+            
+            top:150px;
+            right:80px;
+            padding:25px;
+            border-radius:10px;
+            color:rgb(246, 244, 250);
+            text-align: center;
+            background-image: url(project.png);
+           
+        }
+
+        .form h2{
+            text-align:center;
+            background:white;
+            color:#ff7200;
+            padding:8px;
+            border-radius:10px;
+        }
+
+        .form input{
+            width:100%;
+            height:35px;
+            background:transparent;
+            border:none;
+            border-bottom:1px solid #ff7200;
+            margin-top:30px;
+            color:white;
+            
+        }
+
+        .login-btn{
+            width:100%;
+            height:40px;
+            background:#ff7200;
+            border:none;
+            margin-top:30px;
+            color:rgb(11, 245, 108);
+            font-size:16px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .form p{
+            margin-top:15px;
+            text-align:center;
+        }
+
+        .form a{
+            color:#0e36e9;
+            text-decoration:none;
+        }
+
+        .form img{
+        
+        padding-left: 5px;
+        margin-top: 20px;
+        text-align: center;
+        }
+.foot{
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+}
+.script{
+    padding: 50px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #0e36e9;
+    width:300px;
+    text-align: center;
+        
+}
+</style>
+</head>
+
+<body><center>
+<div class="form">
+<h2>Login</h2>
+
+<form onsubmit="goPage(event)">
+    <input type="email" placeholder="Enter Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="number" placeholder="Write your phone number" required>
+ <button class="login-btn">Enjoy</button>
+  <p>Don't have an account?<a href="x.html">Sign up</a> here</p>
+
+</form>
+</div>
+<script>
+function goPage(event){
+event.preventDefault(); 
+window.location.href = "pro.html";
+}
+</script>
+
+</body></center>
+</html>

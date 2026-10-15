@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="icon" href="Screenshot 2026-04-22 121230.png">
+<link rel="stylesheet" href="pro.css">
+<script src="pro.js"></script>
+<style>
+
+  
+</style>
+
+</head>
+<body>
+<div class="header">
+    <h2><img src="Screenshot 2026-05-07 084806.png"> G.S Rugando TSS</h2>
+    <div class="nav">
+        <a href="dash.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="admin.html"><img src="Screenshot 2026-05-07 082855.png">Dashboard</a>
+        <a href="login.html"><img src="Screenshot 2026-05-07 082932.png">Sign Out</a>
+        <a href="online.html">projects</a>
+    </div>
+</div>
+
+<h2 class="title"><img src="Screenshot 2026-04-22 121230.png"> Admin Dashboard</h2>
+<div class="stats">
+    <div class="card"><img src="Screenshot 2026-05-07 082751.png">1<br><span>Students</span></div>
+    <div class="card"><img src="Screenshot 2026-05-07 082805.png">0<br><span>Marks</span></div>
+    <div class="card"><img src="Screenshot 2026-05-07 082821.png">0<br><span>Messages</span></div>
+    <div class="card"><img src="Screenshot 2026-04-22 115433.png">2<br><span>Staff</span></div>
+</div>
+ <div class="menu">
+    <a href="staff.html" class="active">Students</a>
+    <a href="kill.html">Marks</a>
+    <a href="students.html">Messages</a>
+    <a href="section.html">Staff</a>
+  </div>
+
+<div class="container">
+
+    <div class="form-box">
+        <h3><img src="Screenshot 2026-04-23 084714.png">add student</h3>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="reg" placeholder="Registration Number">
+        <select id="dept">
+            <option disabled="">Our trades</option>
+            <option>Software Development(SOD)</option>
+            <option>Networking and Internet Technology(NIT)</option>
+            <option>Mathematics-Computer science-Economics(MCE)</option>
+            <option>Literature in english-French-Kiswahili(LFK)</option>
+        </select>
+       <center><button onclick="addStudent()"> Add Student</button></center>
+</div>
+    <div class="table-box">
+        <h3>All Students</h3>
+        <table id="studentTable">
+            <tr>
+                <th>Name</th>
+                <th>Reg No.</th>
+                <th>Department</th>
+            </tr>
+            <tr>
+                <td>Mfura Davis</td>
+                <td>124567</td>
+                <td>Software Development(SOD)</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p><img src="Screenshot 2026-05-07 084806.png"> Rugando TSS</p>
+    <p>Quick Links</p>
+    <p>Contact Info</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Income Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e6ffe6;
+            border: 1px solid #00cc66;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="container" id="loginPage">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p class="error" id="loginError"></p>
+</div>
+
+<!-- TAX CALCULATOR PAGE -->
+<div class="container hidden" id="appPage">
+    <h2>Tax Calculator</h2>
+    <input type="number" id="salary" placeholder="Enter Monthly Salary">
+    <button onclick="calculateTax()">Calculate Tax</button>
+
+    <div class="result hidden" id="resultBox"></div>
+</div>
+
+<script>
+    function login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let error = document.getElementById("loginError");
+
+        // Simple login (you can change credentials)
+        if (username === "admin" && password === "1234") {
+            document.getElementById("loginPage").classList.add("hidden");
+            document.getElementById("appPage").classList.remove("hidden");
+        } else {
+            error.textContent = "Invalid username or password!";
+        }
+    }
+
+    function calculateTax() {
+        let salary = document.getElementById("salary").value;
+        let resultBox = document.getElementById("resultBox");
+
+        if (salary === "" || salary <= 0) {
+            resultBox.classList.remove("hidden");
+            resultBox.style.background = "#ffe6e6";
+            resultBox.style.borderColor = "red";
+            resultBox.innerHTML = "Please enter a valid salary!";
+            return;
+        }
+
+        let tax = salary * 0.075;
+
+        resultBox.classList.remove("hidden");
+        resultBox.style.background = "#e6ffe6";
+        resultBox.style.borderColor = "#00cc66";
+        resultBox.innerHTML = `
+            Monthly Salary: <strong>${salary}</strong><br>
+            Tax (7.5%): <strong>${tax.toFixed(2)}</strong>
+        `;
+    }
+</script>
+
+</body>
+</html>

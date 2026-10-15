@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangle Pattern Display</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    .container{
+      width:700px;
+      margin:auto;
+      background:white;
+      border:2px solid #ccc;
+      padding:20px;
+      box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .project-title{
+      color:#0066cc;
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .subtitle{
+      margin-bottom:15px;
+      font-size:18px;
+    }
+
+    .header{
+      background:orange;
+      color:white;
+      text-align:center;
+      padding:10px;
+      font-size:28px;
+      font-weight:bold;
+      margin-bottom:20px;
+    }
+
+    .content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .left-side{
+      width:70%;
+    }
+
+    label{
+      font-weight:bold;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    input{
+      width:150px;
+      padding:8px;
+      border:1px solid #999;
+      margin-bottom:10px;
+    }
+
+    button{
+      background:orange;
+      color:white;
+      border:none;
+      padding:8px 20px;
+      cursor:pointer;
+      font-weight:bold;
+      border-radius:5px;
+    }
+
+    button:hover{
+      background:darkorange;
+    }
+
+    .phone-box{
+      width:60px;
+      height:120px;
+      border:2px solid #666;
+      border-radius:10px;
+      background:#ddd;
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .phone-stars{
+      color:orange;
+      font-size:14px;
+      line-height:18px;
+      text-align:center;
+    }
+
+    .description{
+      margin-top:20px;
+      font-size:18px;
+      line-height:1.5;
+    }
+
+    .output-box{
+      background:#eee;
+      padding:20px;
+      margin-top:20px;
+      min-height:150px;
+      border:1px solid #999;
+    }
+
+    pre{
+      font-size:22px;
+      font-weight:bold;
+      color:#333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="project-title">
+      Project16 Pattern Display: Ishimwe Bruce
+    </div>
+
+    <div class="subtitle">
+      Referring to below given design:
+    </div>
+
+    <div class="header">
+      Triangle of stars(*)
+    </div>
+
+    <div class="content">
+
+      <div class="left-side">
+        <label>Size of triangle</label>
+
+        <input type="number" id="size" placeholder="Enter number">
+
+        <br>
+
+        <button onclick="displayTriangle()">Display</button>
+      </div>
+
+      <div class="phone-box">
+        <div class="phone-stars">
+          *<br>
+          **<br>
+          ***<br>
+          ****
+        </div>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Build your own web page that will be used to display the given
+      figure with rows and column number depending on number written
+      by user after clicking on display button.
+    </div>
+
+    <div class="output-box">
+      <pre id="result"></pre>
+    </div>
+
+  </div>
+
+  <script>
+    function displayTriangle() {
+
+      let size = document.getElementById("size").value;
+
+      let pattern = "";
+
+      for(let i = 1; i <= size; i++) {
+
+        for(let j = 1; j <= i; j++) {
+          pattern += "* ";
+        }
+
+        pattern += "\n";
+      }
+
+      document.getElementById("result").textContent = pattern;
+    }
+  </script>
+
+</body>
+</html>
